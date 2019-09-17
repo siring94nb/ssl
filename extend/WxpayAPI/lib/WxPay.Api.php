@@ -521,7 +521,7 @@ class WxPayApi
 	 * @param int $second   url执行超时时间，默认30s
 	 * @throws WxPayException
 	 */
-	private static function postXmlCurl($xml, $url, $useCert = true, $second = 30)
+	private static function postXmlCurl($xml, $url, $useCert =true, $second = 30)
 	{		
 		$ch = curl_init();
 		//设置超时
@@ -532,6 +532,7 @@ class WxPayApi
 			&& WxPayConfig::CURL_PROXY_PORT != 0){
 			curl_setopt($ch,CURLOPT_PROXY, WxPayConfig::CURL_PROXY_HOST);
 			curl_setopt($ch,CURLOPT_PROXYPORT, WxPayConfig::CURL_PROXY_PORT);
+			
 		}
 		curl_setopt($ch,CURLOPT_URL, $url);
 //		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
