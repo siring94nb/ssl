@@ -15,7 +15,7 @@ class checkLogin extends Controller {
         // }
         // if(!preg_match("/admin\/Login/",$arr["route"])){
             if(!$arr){
-            $data = Session::get("user_id");
+        $data = Session::get("user_id");
             if(empty($data)){
                 $this->redirect(url("/admin/index","",false));
                 exit();
