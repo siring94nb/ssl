@@ -1,0 +1,1504 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/common/css/aaa.css" />
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+
+    #hot {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .list {
+        margin-right: 10px;
+        margin-bottom: 6px;
+        display: flex;
+    }
+
+    .list img {
+        margin-left: 4px;
+        height: 20px;
+    }
+
+    .list .texts {
+        margin-left: 4px;
+        width: 78px;
+        height: 20px;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        color: #669900;
+        border: solid 1px #669900;
+        border-radius: 6px;
+    }
+
+    .title {
+        height: 50px;
+        background: #F2F2F2;
+        font-size: 20px;
+        line-height: 50px;
+        padding-left: 20px;
+        font-weight: bold;
+    }
+
+    .special,
+    .general,
+    .special .layui-form-item,
+    .general .layui-form-item {
+        min-width: 100%;
+    }
+
+    .add-content {
+        background: #F2F2F2;
+        width: 100%;
+    }
+
+    .general-kuang {
+        border: solid 1px #E4E4E4;
+        padding-left: 10px;
+    }
+
+    .btus {
+        background: #fff;
+        border: solid 1px #E4E4E4;
+        color: #0099FF;
+        width: 141px;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    #general-content .layui-form-item {
+        width: 100%;
+    }
+
+    .sky-blue {
+        color: #0099FF;
+    }
+
+    .bgwhite {
+        background: #fff;
+    }
+
+    .noshow {
+        display: none;
+    }
+
+    .special .layui-form-item {
+        width: 100%;
+    }
+
+    .general .layui-form-item {
+        width: 100%;
+    }
+
+    .special .layui-form-item label {
+        width: 10%;
+    }
+
+    .general .layui-form-item label {
+        width: 10%;
+    }
+
+    .operation-btus {
+        width: 60px;
+        height: 40px;
+        border-radius: 3px;
+        color: #fff;
+    }
+
+    .btu-delet {
+        background: #FF0000;
+    }
+
+    .btu-add {
+        background: #0099FF;
+    }
+
+    .num-content {
+        overflow: hidden;
+    }
+
+    #general_content>div {
+        margin-top: 6px;
+    }
+
+    /* 弹窗 */
+
+    .tanchuang {
+        width: 100%;
+        min-height: 1000px;
+        background: RGBA(0, 0, 0, 0.3);
+        position: fixed;
+        z-index: 9999;
+    }
+
+    table .full {
+        width: 100px !important;
+        min-width: 100px !important;
+    }
+
+    table input {
+        text-align: center;
+        width: 80px !important;
+        min-width: 80px !important;
+    }
+
+    table .z_photo {
+        padding: 0;
+    }
+
+    table th {
+        text-align: center;
+    }
+
+    table td {
+        text-align: center;
+    }
+
+    table td input {
+        border: 1px #DDDDDD solid;
+        margin-top: 30px;
+    }
+
+    table td .layui-unselect {
+        margin-top: 30px;
+    }
+
+    .tan {
+        cursor: pointer;
+    }
+
+    .danwei {
+        position: absolute;
+        left: 175px;
+    }
+
+    .line {
+        position: relative;
+    }
+
+
+
+    /*
+     * 弹窗
+     */
+    /*
+     * 弹窗
+     */
+    .popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px #D7D7D7;
+        box-sizing: border-box;
+    }
+
+    .submit_btns {
+        width: 100px;
+        height: 38px;
+        color: #fff;
+        background: #169BD5;
+        border-radius: 10px;
+    }
+
+    .popup_doms {
+        width: 790px;
+        height: 400px;
+        background: #fff;
+    }
+
+    .popup_doms1 {
+        width: 900px;
+        height: 500px;
+        background: #fff;
+    }
+
+    .popup_content {
+        padding: 20px;
+    }
+
+    .popup_title {
+        height: 40px;
+        line-height: 40px;
+        color: #66662B;
+        background: #EEF7EA;
+        padding-left: 20px;
+    }
+
+    .span {
+        display: inline-block;
+        width: 80px;
+        text-align: left;
+        margin-right: 20px;
+    }
+
+    .repany .layui-input {
+        width: 530px;
+    }
+
+    .repany {
+        margin-bottom: 10px;
+    }
+
+    .operation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chat {
+        height: 210px;
+    }
+
+    .danhao {
+        width: 200px;
+        margin-right: 10px;
+    }
+
+    .operation select {
+        width: 130px;
+        height: 40px;
+        border-color: #ABADB3;
+        color: #000;
+        background: #fff;
+    }
+
+    .operation div {
+        margin-right: 10px;
+    }
+
+    .noshow {
+        display: none;
+    }
+
+    .popup_title {
+        position: relative;
+    }
+
+    .popup_x {
+        width: 25px;
+        position: absolute;
+        right: 12px;
+        top: -4px;
+    }
+
+    .repay_tip {
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        background: #669900;
+    }
+
+    .button {
+        width: 100px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #a2a2a2;
+        border-radius: 10px;
+    }
+
+    .button_all {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30PX;
+    }
+
+
+
+    .queding {
+        background: #169BD5;
+        color: #fff;
+    }
+
+    /* 包装规格 */
+    #packing_specification {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 768px;
+    }
+
+    #packing_specification input {
+        width: 60px;
+        margin-right: 5px;
+    }
+
+    .fuhao {
+        font-size: 32px;
+        color: #a2a2a2;
+    }
+
+    .packing_specifications {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 768px;
+
+    }
+
+    .packing_specifications select {
+        display: block
+    }
+
+    .packing_specifications .layui-form-select {
+        display: none;
+    }
+
+    .packing_specifications input {
+        width: 60px;
+        margin-right: 5px;
+    }
+
+    .add_danwei,
+    .add_danwei1,
+    .add_danwei2,
+    .add_muban {
+        cursor: pointer;
+    }
+
+    .packing {
+        height: 38px;
+        margin-right: 5px
+    }
+
+    .danwei_content {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .delect_img {
+        width: 14px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .add_danwei,
+    .add_biao,
+    .add_muban {
+        color: #20A0FF
+    }
+
+    .list span {
+        cursor: pointer;
+    }
+
+    .add_biao {
+        cursor: pointer;
+    }
+
+    .line input {
+        width: 200px;
+    }
+
+    /* 包装规格 */
+</style>
+
+{/block}
+
+<body>
+    {block name="content"}
+    <div class="tanchuang noshow">
+        <div style="width: 395px;height: 527px;margin: 10% auto;">
+            <img src="" class="tanimg" />
+        </div>
+
+    </div>
+    <div class="popup popup_one noshow">
+        <div class="popup_doms">
+
+            <div class="popup_title">
+                请输入内容
+                <div class="popup_x">
+                    <img src="__STATIC__/admin/index/img/X.png" />
+                </div>
+            </div>
+            <div class="popup_content">
+                <textarea name="" id="" cols="100" rows="10"></textarea>
+                <div class="form-item">
+                    <label class="form-label">文字颜色</label>
+                    <div class="form-input1">
+                        <input type="color" name="brand" lay-verify="title" autocomplete="off" placeholder="请输入"
+                            class="layui-input" style="height: 24px;width: 70px;">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">方框颜色</label>
+                    <div class="form-input1">
+                        <input type="color" name="fk_brand" lay-verify="title" autocomplete="off" placeholder="请输入"
+                            class="layui-input" style="height: 24px;width: 70px;">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label">背景颜色</label>
+                    <div class="form-input1">
+                        <input type="color" name="bg_brand" lay-verify="title" autocomplete="off" placeholder="请输入"
+                            class="layui-input" style="height: 24px;width: 70px;">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal" type="button">确认提交</button>
+                    <button type="button" class="layui-btn layui-btn-primary ">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="layui-form layui-form-lists" action="{:url('admin/Goods/goods_add_do')}" method="post"
+        enctype="multipart/form-data">
+        <div class="form-title" onclick="javascript:history.go(0);">基础信息 </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品名称</label>
+            <div class="form-input">
+                <input type="text" name="goods_name" lay-verify="title" autocomplete="off" placeholder="请输入"
+                    class="layui-input" required>
+                <div class="tips">
+                    商品名称必须填写，最多100个字
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品品牌</label>
+            <div class="form-input">
+                <input type="text" name="produce" lay-verify="title" autocomplete="off" placeholder="请输入"
+                    class="layui-input" required>
+                <div class="tips">
+                    *请输入品牌名
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品编号</label>
+            <div class="form-input">
+                <input type="text" name="goods_number" lay-verify="title" autocomplete="off" placeholder="自动生成"
+                    class="layui-input">
+                <div class="tips">
+                    *系统自动生成
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="form-item">
+            <label class="form-label">卖点标签</label>
+            <div class="form-input" style="display: flex; align-items: center;">
+                <div id="hot">
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign[sell_0][check]" value="1" lay-skin="primary"
+                            lay-filter="choose1" title="" checked="">
+                        <input class="texts" type="text" name="sss[sell_0][text]" value="可存" readonly style="display: none">
+                        <img src="__STATIC__/admin/index/img/kecun.png" />
+                    </div>
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign[sell_1][check]" value="0" lay-skin="primary"
+                            lay-filter="choose1" title="">
+                        <input class="texts" type="text" name="sss[sell_1][text]" value="HOT" readonly style="display: none">
+                        <img src="__STATIC__/admin/index/img/hot.png" />
+                    </div>
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign[sell_2][check]" value="0" lay-skin="primary"
+                            lay-filter="choose1" title="">
+                        <input class="texts" type="text" name="sss[sell_2][text]" value="促销" readonly style="display: none">
+                        <img src="__STATIC__/admin/index/img/chuxiao.png" />
+                    </div>
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign[sell_3][check]" value="0" lay-skin="primary"
+                            lay-filter="choose1" title="">
+                        <input class="texts" type="text" name="sss[sell_3][text]" value="清仓" readonly style="display: none">
+                        <img src="__STATIC__/admin/index/img/qingchang.png" />
+                    </div>
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign[sell_4][check]" value="0" lay-skin="primary"
+                            lay-filter="choose1" title="" class="biaoqian">
+                        <input class="texts" type="text" name="sss[sell_4][text]" value="古色生香">
+                    </div>
+                    <div class="add_biao">
+                        +添加文字标签
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+        <div class="form-item">
+            <label class="form-label">分享标题</label>
+            <div class="form-input">
+                <input type="text" name="goods_share_title" lay-verify="title" autocomplete="off" placeholder="请输入"
+                    class="layui-input">
+                <div class="tips">
+                    商品名称变量：{NAME}，商品编号：{NO}。使用方法，如：甩品{NO}的{NAME},大家都来甩一甩！
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">分享描述</label>
+            <div class="form-input">
+                <input type="text" name="goods_share_describe" lay-verify="title" autocomplete="off" placeholder="请输入"
+                    class="layui-input">
+                <div class="tips">
+                    百万红包，开甩即送，召集小伙伴，多甩多得！<span class="tan" style="color: #0E90D2;"
+                        data-id="__STATIC__/admin/common/img/u27291.png">查看实例</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品视频</label>
+            <div class="form-input">
+                <input type="text" name="video_link" lay-verify="title" autocomplete="off" placeholder="请输入http://"
+                    class="layui-input" required>  
+                    <div class="tips">
+                        *如何获取视频地址?<span class="tan" style="color: #0E90D2;" data-id="__STATIC__/admin/common/img/u27291.png"> 
+                            <a href="https://portal.qiniu.com/" target="_blank" style="margin-left: 20px">上传视频到我的七牛云存储</a>
+                        </span>
+                    </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品大图</label>
+            <div class="form-input">
+                <div class="img-box full">
+                    <section class=" img-section">
+                        <div class="z_photo upimg-div clear">
+                            <section class="z_file fl">
+                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                <input type="file" name="goods_show_images[]" id="file" class="file" value=""
+                                    accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="15" required />
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <aside class="mask works-mask">
+                    <div class="mask-content">
+                        <p class="del-p ">您确定要删除作品图片吗？</p>
+                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                    </div>
+                </aside>
+                <div class="tips">
+                    *如果没有添加商品视频，可添加图片替代
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>限时</label>
+            <div class="seach_laber">开始时间</div>
+            <div class="seach_input">
+                <span class="time">
+                    <input name="start_date" type="text" class="text datetimepicker layui-input" 
+                        id="beginTime" value="" required>
+                </span>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"></label>
+            <div class="seach_laber">结束时间</div>
+            <div class="seach_input">
+                <span class="time">
+                    <input name="end_date" type="text" class=" text datetimepicker layui-input" 
+                        id="nextTime" value="" required>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-title">价格库存 </div>
+
+        <div style="line-height:1px">
+            <div class="form-item">
+                <label class="form-label">商品规格</label>
+                <div class="form-input">
+                    <input type="radio" name="goods_standard" value="0" title="统一规格" lay-filter="guige" checked="">
+                    <input type="radio" name="goods_standard" value="1" title="特殊规格" lay-filter="guige">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="general_content" style="margin-top:10px">
+            <div class="form-item general noshow">
+                <div class="layui-input-block general-kuang">
+                    <div class="control-group">
+                        <div class="controls" style="padding: 10px;">
+                            <button id="add_lv1" class="btn btn-primary" type="button">添加规格项</button>
+                            <button id="update_table" class="btn btn-success" type="button">刷新规格项目表</button>
+                            <span class="red">*注意：请全部添加完“规格名称”及“规格值”后，再点击【刷新规格项目表】，就可对各种规格进行价格等编辑，手机前端显示<span
+                                    class="tan" style="color: #0E90D2;"
+                                    data-id="__STATIC__/admin/common/img/u27290.png">查看实例</span></span>
+                        </div>
+                    </div>
+                    <div id="lv_table_con" class="control-group" style="display: none; ">
+                        <label class="control-label">规格项目表</label>
+                        <div class="controls">
+                            <div id="lv_table" style="padding: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="nomal">
+            <div class="form-item">
+                <label class="form-label"><span class="red">*</span>商品划线价</label>
+                <div class="form-input line">
+                    <input type="text" name="goods_bottom_money" lay-verify="title" autocomplete="off" placeholder="请输入"
+                        class="layui-input" required>
+                    <div class="tips">
+                        必填项，显示在前端
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label"><span class="red">*</span>商品进货价</label>
+                <div class="form-input line">
+                    <input type="text" name="goods_cost" lay-verify="title" autocomplete="off" placeholder="请输入"
+                        class="layui-input" id="cost" required>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label class="form-label"><span class="red">*</span>库存</label>
+                <div class="form-input line">
+                    <input type="text" name="goods_repertory" lay-verify="title" autocomplete="off" placeholder="请输入"
+                        class="layui-input" required>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">总数积分</label>
+                <div class="form-input line">
+                    <input type="text" name="points" lay-verify="title" autocomplete="off" placeholder="请输入"
+                        class="layui-input" id="int" readonly="readonly">
+                    <div class="tips">
+                        *总积分数<span class="red">=商品进货价*5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label"><span class="red">*</span>甩费</label>
+                <div class="form-input line">
+                    <input type="text" name="goods_price" lay-verify="title" autocomplete="off"
+                        placeholder="  请输入                            元" class="layui-input" required>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label"><span class="red">*</span>配图</label>
+                <div class="form-input" style="width:450px">
+                    <div class="img-box full">
+                        <section class=" img-section">
+                            <div class="z_photo upimg-div clear">
+                                <section class="z_file fl">
+                                    <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                    <input type="file" name="goods_images_one[]" id="file_one" class="file" value=""
+                                        accept="image/jpg,image/jpeg,image/png,image/bmp"  data-id="1" required/>
+                                </section>
+                                <div class="tips" style="width:250px;">
+                                    配图一：首页上滑，商品详情右上架图，建议尺寸：300*300像素，只有一张
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="mask works-mask">
+                        <div class="mask-content">
+                            <p class="del-p ">您确定要删除作品图片吗？</p>
+                            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span>
+                            </p>
+                        </div>
+                    </aside>
+
+                </div>
+                <div class="form-input" style="width:450px">
+                    <div class="img-box full">
+                        <section class=" img-section">
+                            <div class="z_photo upimg-div clear">
+                                <section class="z_file fl">
+                                    <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                    <input type="file" name="goods_images_two[]" id="file_two" class="file" value=""
+                                        accept="image/jpg,image/jpeg,image/png,image/bmp"  data-id="1" required />
+                                </section>
+                                <div class="tips" style="width:250px;">
+                                    配图二：开甩界面配图，建议尺寸：720 x 1280像素，只有一张
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="mask works-mask">
+                        <div class="mask-content">
+                            <p class="del-p ">您确定要删除作品图片吗？</p>
+                            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span>
+                            </p>
+                        </div>
+                    </aside>
+
+                </div>
+                <div class="form-input" style="width: 450px;">
+                    <div class="img-box full">
+                        <section class=" img-section">
+                            <div class="z_photo upimg-div clear">
+                                <section class="z_file fl">
+                                    <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                    <input type="file" name="goods_images_three[]" id="file_three" class="file" value=""
+                                        accept="image/jpg,image/jpeg,image/png,image/bmp"  data-id="1"  required/>
+                                </section>
+                                <div class="tips" style="width:250px;">
+                                    配图三：个人中心商品图片，建议尺寸：650 x 200像素，只有一张
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="mask works-mask">
+                        <div class="mask-content">
+                            <p class="del-p ">您确定要删除作品图片吗？</p>
+                            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span>
+                            </p>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品详情</label>
+            <div class="form-input">
+                <script id="editor" type="text/plain" name="goods_detail" style="width:800px;height:500px;"></script>
+            </div>
+        </div>
+        </div>
+
+
+
+        <div class="form-title">运费</div>
+        <div class="form-item">
+            <label class="form-label">快递运费</label>
+            <div class="form-input line">
+                <input type="text" name="goods_freight" lay-verify="title" autocomplete="off"
+                    placeholder="  请输入                            元" class="layui-input" required>
+                <div class="tips">
+                    *运费直接加到总价中，主要针对体积大的商品，一般免运费
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="form-item">
+            <label class="form-label">状态</label>
+            <div class="form-input">
+                <input type="radio" name="label" value="1" title="立即上架" checked="checked">
+                <input type="radio" name="label" value="0" title="暂不上架">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">帮甩限制</label>
+            <div class="form-input">
+                <input type="radio" name="goods_setting" value="0" title="不限制" lay-filter="nolimit" checked>
+                <input type="radio" name="goods_setting" value="1" title="限制" lay-filter="limit">
+                <div class="tips">
+                    *已经在甩的商品，就不能帮别人甩同一个商品了，要弹框提示：此商品您已开甩，不能帮甩
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" type="submit" id="submit">保存</button>
+                <button type="button" class="layui-btn layui-btn-primary"
+                    onClick="javascript :history.back(-1);">返回</button>
+            </div>
+
+        </div>
+    </form>
+    {/block}
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+    <script src="__STATIC__/admin/common/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        var ue1 = UE.getEditor('editor1');
+        var codings = [];
+
+
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage', 'upload'],
+            function () {
+                var form = layui.form(),
+                    $ = layui.jquery;
+
+                form.render();
+
+
+                //规格切换
+                $(".general_content").on("blur", ".units", function () {
+                    id = $(this).data("id");
+                    if ($(this).data("value") != $(this).val()) {
+                        $(".muban").remove();
+                    }
+
+                    // 填入的值不为空
+                    if ($(this).val() != '') {
+                        console.log($(this).data("value"))
+                        // 本来无值（存入）
+                        if ($(this).data("value") == undefined) {
+
+                            unit2.push($(this).val());
+                        }
+                        // 本来有值（修改）
+                        else {
+                            for (var k = 0; k < unit2.length; k++) {
+                                if (unit2[k] == $(this).data("value")) {
+                                    unit2[k] = $(this).val();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    //   填入的值为空
+                    else {
+                        // 本来无值（存入）
+                        if ($(this).data("value") == '') {
+                        }
+                        // 本来有值（修改）
+                        else {
+                            for (var k = 0; k < unit2.length; k++) {
+                                if (unit2[k] == $(this).data("value")) {
+                                    unit2.splice(k, 1);
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                    console.log(unit2);
+                    $(this).data("value", $(this).val());
+                })
+
+                $(".nomal").on("blur", ".units", function () {
+                    id = $(this).data("id");
+                    if ($(this).data("value") != $(this).val()) {
+                        $(".muban").remove();
+                    }
+
+                    // 填入的值不为空
+                    if ($(this).val() != '') {
+                        // 本来无值（存入）
+                        if ($(this).data("value") == '') {
+                            unit1.push($(this).val());
+                        }
+                        // 本来有值（修改）
+                        else {
+                            for (var k = 0; k < unit1.length; k++) {
+                                if (unit1[k] == $(this).data("value")) {
+                                    unit1[k] = $(this).val();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    //   填入的值为空
+                    else {
+                        // 本来无值（存入）
+                        if ($(this).data("value") == '') {
+                        }
+                        // 本来有值（修改）
+                        else {
+                            for (var k = 0; k < unit1.length; k++) {
+                                if (unit1[k] == $(this).data("value")) {
+                                    unit1.splice(k, 1);
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+
+
+
+                    $(this).data("value", $(this).val());
+                })
+                $(".general_content").on('click', ".delect_img", function () {
+
+                    if ($(this).siblings(".units").val() != '') {
+                        for (var k = 0; k < unit2.length; k++) {
+                            if (unit2[k] == $(this).siblings(".units").val()) {
+                                unit2.splice(k, 1);
+                                break;
+                            }
+                        }
+                    }
+                    $(".muban").remove();
+                    $(this).parent().remove();
+                })
+                $(".nomal").on('click', ".delect_img", function () {
+                    if ($(this).siblings(".units").val() != '') {
+                        for (var k = 0; k < unit1.length; k++) {
+                            if (unit1[k] == $(this).siblings(".units").val()) {
+                                unit1.splice(k, 1);
+                                break;
+                            }
+                        }
+
+                    }
+                    $(".muban").remove();
+                    $(this).parent().remove();
+                })
+
+                //总积分计算
+                $('#cost').on('blur', function () {
+                    if ($(this).val() != '') {
+                        var a = Number($(this).val()) * 5;
+                        a = Math.round(a);
+                        $('#int').val(a);
+                    }
+                })
+
+                //修改复选框的val值
+                form.on("checkbox(choose1)", function (data) {
+
+                    if (data.value == "1") {
+                        $(this).val('0');
+                        data.value = "0";
+                    } else {
+                        $(this).val('1');
+                        data.value = "1";
+                    }
+                    form.render('checkbox');
+                })
+
+                var i = $('#hot').find(":checkbox").length;
+                $(".add_biao").click(function () {
+                    var dhtml = "";
+                    dhtml = `<div class="list" style="position: relative;">
+                            <input type="checkbox" name="sss[sell_${i}][check]" value="0" lay-skin="primary" lay-filter="choose1"
+                                title="" class="biaoqian">
+                            <input class="texts" type="text" name="sss[sell_${i}][text]" value="古色生香">
+                            <img src="__STATIC__/admin/index/img/X.png" alt="" class="delect_img" style="width: 14px;height: 14px;    left: 15px;top: -5px;">
+                            </div>`;
+                    $(this).before(dhtml);
+                    form.render();
+                    i = i + 1;
+                });
+                $("#hot").on('click', ".delect_img", function () {
+                    $(this).parent().remove();
+                    i = $('#hot').find(":checkbox").length;
+                })
+                var vals = '';
+                var lv1HTML = '';
+                lv1HTML += '<div class="control-group lv1" style="padding: 10px;">';
+                lv1HTML += '	<label class="control-label">规格名称</label>';
+                lv1HTML += '	<div class="controls">';
+                lv1HTML += '		<input type="text" name="lv1[]" class="lvv3"  placeholder="规格名称" />';
+                lv1HTML += '		<button class="btn btn-primary add_lv2" type="button">添加规格值</button>';
+                lv1HTML += '		<button class="btn btn-danger remove_lv1" type="button">删除规格名 </button>';
+                lv1HTML += '	</div>';
+                lv1HTML += '	<div class="controls lv2s">';
+                lv1HTML += '	</div>';
+                lv1HTML += '</div>';
+
+                function isPositiveNum(s) {
+                    var re = /^[0-9]*[1-9][0-9]*$/;
+                    return re.test(s);
+                }
+
+                $(document).ready(function () {
+                    $('#add_lv1').on('click', function () {
+                        var last = $('.control-group.lv1:last');
+                        if (!last || last.length == 0) {
+                            $(this).parents('.control-group').eq(0).after(lv1HTML);
+                        } else {
+                            last.after(lv1HTML);
+                        }
+                    });
+                    $(document).on('click', '.remove_lv1', function () {
+                        $(this).parents('.lv1').remove();
+                    });
+                    $(document).on('click', '.add_lv2', function () {
+                        var vals = $(this).siblings("input").val();
+                        var lv2HTML = '';
+                        lv2HTML += '<div style="margin-top: 5px;">';
+                        lv2HTML += '	<input type="text" name="' + vals + '[]" class="lvv4" placeholder="参数名称" />';
+                        lv2HTML += '	<button class="btn btn-danger remove_lv2" type="button">删除规格值</button>';
+                        lv2HTML += '</div>';
+                        $(this).parents('.lv1').find('.lv2s').append(lv2HTML);
+                    });
+                    $(document).on('click', '.remove_lv2', function () {
+                        $(this).parent().remove();
+                    });
+                    $('#update_table').on('click', function () {
+                        codings.splice(0, codings.length);
+                        $(".generals").remove();
+                        var danwei2 = '';
+                        danwei2 += '<div class="form-item general generals" style=" align-items: center;">';
+                        danwei2 += '<label class="form-label">包装规格</label>';
+                        danwei2 += '<div class="form-input packing_specifications" style=" align-items: center;">';
+                        danwei2 += '<select name="" class="packing">';
+                        danwei2 += '<option value="0">请选择规格编码</option>';
+                        for (var j = 0; j < codings.length; j++) {
+                            danwei2 += '<option value="' + codings[j] + '">' + codings[j] + '</option>';
+                        }
+                        danwei2 += '</select>';
+                        danwei2 += '<div class="add_danwei1" style="color: #20A0FF;" data-id="0"> 继续添加单位</div>';
+                        danwei2 += '</div>';
+                        danwei2 += ' </div>';
+                        $(".add_danwei2").parent().before(danwei2)
+                        var lv1Arr = $('input[class="lvv3"]');
+                        if (!lv1Arr || lv1Arr.length == 0) {
+                            $('#lv_table_con').hide();
+                            $('#lv_table').html('');
+                            return;
+                        }
+                        if (lv1Arr.length > 6) {
+                            alert('规格名称最多上传6项！');
+                            return;
+                        }
+                        for (var i = 0; i < lv1Arr.length; i++) {
+                            var lv2Arr = $(lv1Arr[i]).parents('.lv1').find('input[class="lvv4"]');
+                            if (!lv2Arr || lv2Arr.length == 0) {
+                                alert('请先删除无参数的规格项！');
+                                return;
+                            }
+                        }
+
+                        var tableHTML = '';
+                        tableHTML += '<table class="table table-bordered">';
+                        tableHTML += '	<thead>';
+                        tableHTML += '		<tr>';
+                        for (var i = 0; i < lv1Arr.length; i++) {
+                            tableHTML += '			<th width="50"><input value="' + $(lv1Arr[i]).val() + '"  readonly style="border:0;"></th>';
+                        }
+                        tableHTML += '			<th width="100px"><input value="库存"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="规格编码"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="成本价"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="划线价"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="总积分"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="甩费"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="配图一"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="配图二"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="配图三"  readonly style="border:0;"></th>';
+                        tableHTML += '			<th width="100px"><input value="是否上架"  readonly style="border:0;"></th>';
+                        tableHTML += '		</tr>';
+                        tableHTML += '	</thead>';
+                        tableHTML += '	<tbody>';
+
+                        var numsArr = new Array();
+                        var idxArr = new Array();
+                        for (var i = 0; i < lv1Arr.length; i++) {
+                            numsArr.push($(lv1Arr[i]).parents('.lv1').find('input[class="lvv4"]').length);
+                            idxArr[i] = 0;
+                        }
+
+                        var len = 1;
+                        var rowsArr = new Array();
+                        for (var i = 0; i < numsArr.length; i++) {
+                            len = len * numsArr[i];
+
+                            var tmpnum = 1;
+                            for (var j = numsArr.length - 1; j > i; j--) {
+                                tmpnum = tmpnum * numsArr[j];
+                            }
+                            rowsArr.push(tmpnum);
+                        }
+
+                        for (var i = 0; i < len; i++) {
+                            tableHTML += '		<tr data-row="' + (i + 1) + '">';
+
+                            var name = '';
+                            for (var j = 0; j < lv1Arr.length; j++) {
+                                var n = parseInt(i / rowsArr[j]);
+                                if (j == 0) { } else if (j == lv1Arr.length - 1) {
+                                    n = idxArr[j];
+                                    if (idxArr[j] + 1 >= numsArr[j]) {
+                                        idxArr[j] = 0;
+                                    } else {
+                                        idxArr[j]++;
+                                    }
+                                } else {
+                                    var m = parseInt(i / rowsArr[j]);
+                                    n = m % numsArr[j];
+                                }
+
+                                var text = $(lv1Arr[j]).parents('.lv1').find('input[class="lvv4"]').eq(n).val();
+                                if (j != lv1Arr.length - 1) {
+                                    name += text + '_';
+                                } else {
+                                    name += text;
+                                }
+
+                                if (i % rowsArr[j] == 0) {
+                                    tableHTML += '	<td width="50" rowspan="' + rowsArr[j] + '" data-rc="' + (i + 1) + '_' + (j + 1) + '"><input value="' + text + '"  name="sss' + name + '[name]"  readonly style="border:0;"></td>';
+                                }
+                            }
+
+                            tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[stock]"    required /></td>';
+                            tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[coding]" class="coding" required /></td>';
+                            tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[cost]" id="cost_1" required /></td>';
+                            tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[line]" required /></td>';
+                            tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[total]" id="ins_1" class="offer" readonly="readonly" /></td>';
+                            tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[jilt]"  /></td>';
+                            tableHTML += '			<td width="100px">';
+                            tableHTML += '                         <div class="img-box full">';
+                            tableHTML += '	                    <section class=" img-section">';
+                            tableHTML += '	                        <div class="z_photo upimg-div clear">';
+                            tableHTML += '	                            <section class="z_file fl">';
+                            tableHTML += '	                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">';
+                            tableHTML += '	                                <input type="file" name="imgs_one[]" id="file1_' + i + '" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" required />';
+                            tableHTML += '	                            </section>';
+                            tableHTML += '	                        </div>';
+                            tableHTML += '                    </section>';
+                            tableHTML += '                </div>';
+                            tableHTML += '                <aside class="mask works-mask">';
+                            tableHTML += '                   <div class="mask-content">';
+                            tableHTML += '                       <p class="del-p ">您确定要删除作品图片吗？</p>';
+                            tableHTML += '                     <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>';
+                            tableHTML += '                 </div>';
+                            tableHTML += '            </aside>';
+                            tableHTML += '          </td>';
+                            tableHTML += '			<td width="100px">';
+                            tableHTML += '                         <div class="img-box full">';
+                            tableHTML += '	                    <section class=" img-section">';
+                            tableHTML += '	                        <div class="z_photo upimg-div clear">';
+                            tableHTML += '	                            <section class="z_file fl">';
+                            tableHTML += '	                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">';
+                            tableHTML += '	                                <input type="file" name="imgs_two[]" id="file2_' + i + '" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" required />';
+                            tableHTML += '	                            </section>';
+                            tableHTML += '	                        </div>';
+                            tableHTML += '                    </section>';
+                            tableHTML += '                </div>';
+                            tableHTML += '                <aside class="mask works-mask">';
+                            tableHTML += '                   <div class="mask-content">';
+                            tableHTML += '                       <p class="del-p ">您确定要删除作品图片吗？</p>';
+                            tableHTML += '                     <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>';
+                            tableHTML += '                 </div>';
+                            tableHTML += '            </aside>';
+                            tableHTML += '          </td>';
+                            tableHTML += '			<td width="100px">';
+                            tableHTML += '                         <div class="img-box full">';
+                            tableHTML += '	                    <section class=" img-section">';
+                            tableHTML += '	                        <div class="z_photo upimg-div clear">';
+                            tableHTML += '	                            <section class="z_file fl">';
+                            tableHTML += '	                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">';
+                            tableHTML += '	                                <input type="file" name="imgs_three[]" id="file3_' + i + '" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" required />';
+                            tableHTML += '	                            </section>';
+                            tableHTML += '	                        </div>';
+                            tableHTML += '                    </section>';
+                            tableHTML += '                </div>';
+                            tableHTML += '                <aside class="mask works-mask">';
+                            tableHTML += '                   <div class="mask-content">';
+                            tableHTML += '                       <p class="del-p ">您确定要删除作品图片吗？</p>';
+                            tableHTML += '                     <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>';
+                            tableHTML += '                 </div>';
+                            tableHTML += '            </aside>';
+                            tableHTML += '          </td>';
+                            tableHTML += '			<td width="100px"><input type="checkbox" class="Status" name="sss' + name + '[status]" value="0" lay-skin="switch" lay-text="是|否" lay-filter="isShow" name="sss' + name + '[static]"></td>';
+                            tableHTML += '		</tr>';
+                        }
+                        tableHTML += '	</tbody>';
+                        tableHTML += '</table>';
+
+                        $('#lv_table_con').show();
+                        $('#lv_table').html(tableHTML);
+
+
+                        //总积分计算_1
+                        $('#cost_1').on('blur', function () {
+                            if ($(this).val() != '') {
+                                var b = Number($(this).val()) * 5;
+                                b = Math.round(b);
+                                $('#ins_1').val(b);
+                            }
+                        })
+
+                        form.render();
+                    });
+                });
+
+                $("#hot").on('click', ".change_text", function () {
+                    var texts = $(this).siblings('.texts');
+                    var biaoqian = $(this).siblings('.biaoqian');
+                    var that = $(this).parent();
+                    layer.prompt({
+                        title: '请输入修改的文字',
+                        btn: ['确定', '取消',], //可以无限个按钮
+                        formType: 2
+                    }, function (text, index) {
+                        console.log(text);
+                        texts.html(text);
+                        biaoqian.val()
+                        layer.close(index);
+                    }
+
+                    );
+
+                })
+
+                //TODO点击取消按钮
+                $("#general_content").on('click', ".btu-cancel", function () {
+                    $(this).parent(".add-names").addClass("noshow");
+                    $(this).parent().siblings(".add-names").addClass("noshow");
+                    $(this).parent().siblings(".add-name").removeClass("noshow");
+                });
+
+                // TODO商品规格变化
+                form.on('radio(guige)', function (data) {
+                    var checkval = data.value;
+                    console.log(checkval)
+                    if (checkval == "0") { //统一规格
+
+                        $(".general").addClass("noshow");
+                        $(".nomal").removeClass("noshow");
+                        $("#general_content").children("div").remove();
+                        $(".nomal").children(".form-item").children(".form-input").children(".danwei_a").children("input").attr("disabled", false)
+                        $(".table-bordered").empty();
+
+                    } else {
+
+                        $(".nomal").children(".form-item").children(".form-input").children(".danwei_a").children("input").attr("disabled", true)
+                        $(".nomal").addClass("noshow");
+                        $(".general ").removeClass("noshow");
+                    }
+
+                });
+
+                form.on('switch(isShow)', function (data) {
+                    if ($(this).val() == 0) {
+                        $(this).val(1);
+                    } else {
+                        $(this).val(0);
+                    }
+
+                });
+                form.on('switch(issave)', function (data) {
+                    if ($(this).val() == 0) {
+                        $(this).val(1);
+                    } else {
+                        $(this).val(0);
+                    }
+
+                });
+                //	TODO点击添加添加规格名
+                $("#general_content").on('click', ".add-name", function () {
+                    $(this).addClass("noshow");
+                    $(this).siblings(".add-names").removeClass("noshow");
+                });
+                $("#general_content").on('click', ".guibtu-add", function () {
+                    var text = $(this).parent().siblings(".add-names").children("input").val();
+                    var data_id = $(this).data("id");
+                    $.ajax({
+                        type: "POST",
+                        url: "goods_name",
+                        data: {
+                            "goods_name": text
+                        },
+                        success: function (data) {
+                            data = eval("(" + data + ")");
+                            //                      console.log(data)
+                            layer.msg(data.info);
+                            if (data.info == "成功") {
+                                var dhtmls = "";
+                                dhtmls = '<option value="' + text + '">' + text + '</option> ';
+                                $(".universal_standard_name_" + data_id).prepend(dhtmls);
+                            }
+
+                            form.render('select');
+                        },
+                        error: function (data) {
+                            console.log(data)
+                        }
+                    });
+
+                });
+                // $(".tan").click(function () {
+                //     src = $(this).data("id");
+                //     $(".tanchuang").removeClass("noshow");
+                //     $(".tanimg").attr("src", src);
+                // });
+                $(".tanchuang").click(function () {
+                    $(".tanchuang").addClass("noshow");
+                });
+                $(".popup_x").click(function () {
+                    $(".popup").addClass("noshow");
+                });
+
+
+                // 包装规格
+                $(".add_danwei").click(function () {
+                    var danwei = ''
+                    danwei += '<div class="danwei_a" style=" position: relative; display: flex;align-items: center;">';
+                    danwei += '<div class="fuhao">=</div>';
+                    danwei += '<input type="text" name="num[]" lay-verify="title" autocomplete="off" placeholder="数量" class="layui-input">';
+                    danwei += '<input type="text" name="unit[]" lay-verify="title" autocomplete="off" placeholder="单位" class="layui-input units" maxlength="2" data-id="1" data-value="">';
+                    danwei += ' <img src="__STATIC__/admin/index/img/X.png" alt="" class="delect_img">';
+                    danwei += '</div>';
+                    $(this).before(danwei);
+                });
+                $(".general_content").on("click", ".add_danwei1", function () {
+                    var i = parseInt($(this).data("id"));
+                    var select = $(this).siblings(".packing").val()
+                    if (select != "0") {
+
+                        var danwei1 = '';
+                        danwei1 += '<div class="danwei_content">';
+                        danwei1 += '<div class="fuhao">=</div>';
+                        danwei1 += '<input type="text" name="' + select + '_num[]" lay-verify="title" autocomplete="off" placeholder="数量" class="layui-input" required>';
+                        danwei1 += '<input type="text" name="' + select + '_unit[]" lay-verify="title" autocomplete="off" placeholder="单位" class="layui-input units" maxlength="2" required  data-id="2" >';
+                        danwei1 += ' <img src="__STATIC__/admin/index/img/X.png" alt="" class="delect_img">';
+                        danwei1 += '</div>';
+
+                        $(this).before(danwei1);
+                    }
+                    else {
+                        alert("请选择规格编码");
+                    }
+                    $(this).data("id", i + 1);
+
+                });
+                $(".add_danwei2").click(function () {
+                    if ($(".packings").find("option").length != 1) {
+                        var danwei2 = '';
+                        danwei2 += '<div class="form-item general generals" style=" align-items: center;position: relative;">';
+                        danwei2 += '<label class="form-label"></label>';
+                        danwei2 += '<div class="form-input packing_specifications" style=" align-items: center;">';
+                        danwei2 += '<select name="" class="packing">';
+                        danwei2 += '<option value="0">请选择规格编码</option>';
+                        for (var j = 0; j < codings.length; j++) {
+                            danwei2 += '<option value="' + codings[j] + '">' + codings[j] + '</option>';
+                        }
+                        danwei2 += '</select>';
+                        danwei2 += '<div class="add_danwei1" style="color: #20A0FF;" data-id="0"> 继续添加单位</div>';
+                        danwei2 += '</div>';
+                        danwei2 += ' <img src="__STATIC__/admin/index/img/X.png" alt="" class="delect_img"  style=" left:100px">';
+                        danwei2 += ' </div>';
+                        $(this).parent().before(danwei2)
+                    }
+                    else {
+                        alert("请先添加规格编码")
+                    }
+                });
+            });
+        $(".general-kuang").on('focus', ".coding", function () {
+            $(this).data("id", $(this).val());
+        });
+
+        $(".general-kuang").on('change', ".coding", function () {
+
+            if ($(this).data("id") == '') {
+                var dhtmlq = '';
+                dhtmlq += ' <option value="' + $(this).val() + '">' + $(this).val() + '</option>';
+                $(".packing").append(dhtmlq);
+                $(this).data("id", $(this).val());
+                codings.push($(this).val());
+            }
+            else {
+                $("input[name='" + $(this).data("id") + "_num[]']").attr('name', $(this).val() + "_num[]");
+                $("input[name='" + $(this).data("id") + "_unit[]']").attr('name', $(this).val() + "_unit[]");
+                $(".packing option[value='" + $(this).data("id") + "']").text($(this).val());
+                $(".packing option[value='" + $(this).data("id") + "']").val($(this).val());
+
+                for (var i = 0; i < codings.length; i++) {
+                    console.log(codings[i]);
+                    console.log($(this).data("id"));
+                    console.log($(this).val());
+                    if (codings[i] == $(this).data("id")) {
+                        codings[i] = $(this).val();
+                    }
+                }
+                $(this).data("id", $(this).val());
+            }
+            //    console.log(codings);
+        });
+
+
+        $(".general_content").on('change', ".packing", function () {
+            console.log($(this).val())
+            if ($(this).val() == 0) {
+                $(this).siblings(".danwei_content").remove();
+            }
+            var k = 0;
+            for (var q = 0; q < $(".packing").length; q++) {
+                if ($(".packing")[q].value == $(this).val()) {
+                    k++;
+                }
+            }
+            if (k > 1) {
+                console.log($(this).find("option[value='0']"));
+                $(this).children("option").remove();
+                var danwei4 = '';
+                danwei4 += '<option value="0">请选择规格编码</option>';
+                for (var j = 0; j < codings.length; j++) {
+                    danwei4 += '<option value="' + codings[j] + '">' + codings[j] + '</option>';
+                }
+
+                $(this).append(danwei4);
+            }
+
+        })
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        $("#lv_table").on("keyup", ".offer", function () {
+            this.value = this.value.replace(/\s+/g, '');
+            this.value = this.value.replace(/_+/g, '');
+        })
+        // //商品属性判断
+        // $('#submit').click(function(){
+        //     var goods_name=$('input[name="goods_name"]').val();    //商品名称
+        //     var goods_brand=$('input[name="brand"]').val();
+          
+        //     alert(goods_name);
+        //     alert(goods_brand);
+
+
+        //     return false;
+        // })
+        //视频预览
+        function open(obj)
+        {
+            var url=$(obj).pre().val();
+            alert(rul);
+        }
+        
+
+
+
+    </script>
+
+    {/block}
+
+</body>
+
+</html>
