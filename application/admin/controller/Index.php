@@ -27,32 +27,31 @@ class Index extends Controller
     public function index()
     {
         $user_info = Session::get("user_info");
-            $menu_list = db("menu")->where('status','<>',0)->select();
-            $role = db("role")->where("id",$user_info[0]['role_id'])->field("menu_role_id")->select();
-            $role = explode(",",$role[0]["menu_role_id"]);
-            //在控制台获取当前的url地址
-            $url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['REQUEST_URI'];
-            //var_dump($url);
+        $menu_list = db("menu")->where('status','<>',0)->select();
+        $role = db("role")->where("id",$user_info[0]['role_id'])->field("menu_role_id")->select();
+        $role = explode(",",$role[0]["menu_role_id"]);
+        //在控制台获取当前的url地址
+        $url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['REQUEST_URI'];
+        //var_dump($url);
 
-            $explode = explode("/",$url);
-            if(count($explode) > 3){
-                $url = "/".$explode[1]."/".$explode[2];
-            }
-
-            $if_url = 0;
-            if($user_info[0]['id'] != 1) {
-                foreach ($menu_list as $key => $values) {
-                    if (!in_array($values['id'], $role)) {
-                        unset($menu_list[$key]);
-                    } else {
-                        if ($values['url'] == $url) {
-                            $if_url = 1;
-                        }
+        $explode = explode("/",$url);
+        if(count($explode) > 3){
+            $url = "/".$explode[1]."/".$explode[2];
+        }
+        $if_url = 0;
+        if($user_info[0]['id'] != 1) {
+            foreach ($menu_list as $key => $values) {
+                if (!in_array($values['id'], $role)) {
+                    unset($menu_list[$key]);
+                } else {
+                    if ($values['url'] == $url) {
+                        $if_url = 1;
                     }
                 }
             }
-            $menu_list1 = _tree_hTree(_tree_sort($menu_list,"sort_number"));
-            config("menu_list",$menu_list1);//节点信息
+        }
+        $menu_list1 = _tree_hTree(_tree_sort($menu_list,"sort_number"));
+        config("menu_list",$menu_list1);//节点信息
         $menu_list = Config::get("menu_list");
         $user_info =Session::get("user_info");
         $account =$user_info[0]["account"];
