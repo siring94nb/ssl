@@ -24,11 +24,15 @@ class WxPayConfig
 	 * @var string
 	 */
 
-
-	const APPID = 'wxd3bc655771a1e376';
-	const MCHID = '1536319261';
-	const KEY = 'dTkOKWah1BpiEpabmyZtig4vxu7jrmht';
-	const APPSECRET = 'd3dc3b56623ba9d8cf933351825ce349';
+	const APPID = 'wxf0c67b5684405d44';
+	const MCHID = '1559227101';
+	const KEY = 'Siring13922830809zhanghaiqing123';
+	const APPSECRET = 'efbf672f147c397407b2267cf3d4253a';
+	//甩甩乐微信支付
+	// const APPID = 'wxd3bc655771a1e376';
+	// const MCHID = '1536319261';
+	// const KEY = 'dTkOKWah1BpiEpabmyZtig4vxu7jrmht';
+	// const APPSECRET = 'd3dc3b56623ba9d8cf933351825ce349';
 
 //	const NOTIFY_URL ='https://teahouse.siring.com.cn/notify';
 	

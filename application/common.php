@@ -56,7 +56,7 @@ function curl($url){
  */
 function sms_message($content,$mobile)
 {
-    $url = "http://117.48.217.182:8860/sendSms";//请求URL     47.107.123.77
+    $url = "http://117.48.217.182:8860/sendSms";//请求URL     47.107.123.77     47.112.109.159
     $api_code = "240022";//对接协议中的API代码
     $api_secret = "SCPR87L6RF";//对接协议中的API密码
     $sign = md5($content.$api_secret);//md加密后短信内容+API密码 获得签名
