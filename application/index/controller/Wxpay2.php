@@ -17,9 +17,9 @@ class Wxpay2 extends Controller{
     配置参数
     */
     private $config = array(
-        'appid' => "wxf0c67b5684405d44",//"wxcf1dded808489e2c",    /*微信开放平台上的应用id*/
-        'mch_id' => "1559227101",//"1440493402",   /*微信申请成功之后邮件中的商户id*/
-        'api_key' => "Siring13922830809zhanghaiqing123"    /*在微信商户平台上自己设定的api密钥 32位*/
+        'appid' => "wxd3bc655771a1e376",//"wxcf1dded808489e2c",    /*微信开放平台上的应用id*/
+        'mch_id' => "1536319261",//"1440493402",   /*微信申请成功之后邮件中的商户id*/
+        'api_key' => "dTkOKWah1BpiEpabmyZtig4vxu7jrmht"    /*在微信商户平台上自己设定的api密钥 32位*/
         // 'api_key' => "d3dc3b56623ba9d8cf933351825ce349"    /*在微信商户平台上自己设定的api密钥 32位*/
     );
 
@@ -38,8 +38,7 @@ class Wxpay2 extends Controller{
         $data["out_trade_no"] = $out_trade_no;
         $data["spbill_create_ip"] = $this->get_client_ip();
         $data["total_fee"] = $total_fee;
-        // $data["trade_type"] = "APP";
-        $data["trade_type"] = "JSAPI";
+        $data["trade_type"] = "APP";
         $s = $this->getSign($data, false);
         $data["sign"] = $s;
         $xml = $this->arrayToXml($data);
