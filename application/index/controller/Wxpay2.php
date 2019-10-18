@@ -38,7 +38,8 @@ class Wxpay2 extends Controller{
         $data["out_trade_no"] = $out_trade_no;
         $data["spbill_create_ip"] = $this->get_client_ip();
         $data["total_fee"] = $total_fee;
-        $data["trade_type"] = "APP";
+        // $data["trade_type"] = "APP";
+        $data["trade_type"] = "JSAPI";
         $s = $this->getSign($data, false);
         $data["sign"] = $s;
         $xml = $this->arrayToXml($data);
