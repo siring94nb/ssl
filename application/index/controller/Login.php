@@ -36,7 +36,7 @@ class Login extends Controller{
                 //发送短信
                 $code=rand(100,999);
                 Session::set('code',$code);
-                $content="【刷赚】".$code."（短视频电商平台验证码，十分钟内有效）";//带签名的短息内容
+                $content="【刷赚】验证码：".$code."（短视频电商平台验证码，十分钟内有效）";//带签名的短息内容
                 $mobile = $post['account'];//手机号
                 $re2= sms_message($content,$mobile);
                 if($re2){
