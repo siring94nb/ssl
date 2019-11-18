@@ -56,7 +56,7 @@ class Login extends Controller{
                     //发送短信
                     $code=rand(100,999);
                     Session::set('code',$code);
-                    $content='您的验证码：'.$code;
+                    $content="【Siring】验证码：".$code."（短视频电商平台验证码，十分钟内有效）";//带签名的短息内容
                     $re3=sms_message($content,$post['account']);
 //                        //获取token
 //                        $key=$user['passwd'];          //客户秘钥--注册时生成

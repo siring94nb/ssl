@@ -22,7 +22,7 @@ class Alipay extends Controller
     public function alipay($body, $total_amount, $product_code)
     {
         //测试假数据
-        $notify_url="https://ssl.siring.com.cn/alipaynotify";
+        $notify_url="https://shuazhuan.siring.com.cn/alipaynotify";
         $pay = new ali();            
         $alipay= $pay->pay($body, $total_amount, $product_code, $notify_url);
         if($alipay)
