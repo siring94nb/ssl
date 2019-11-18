@@ -395,7 +395,7 @@ class Order extends Base
                     $product_code=$data['order_number'];              //订单号
                     $body='甩甩乐';                      //详细信息
                     $ali = new alipay();//统一下单
-                    $res=$ali->alipay( $total_amount, $product_code);
+                    $res=$ali->alipay($total_amount,$product_code);
                     if($res)
                     {
                         $map['ali']=$res;
