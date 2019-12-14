@@ -93,6 +93,7 @@ class  Alipay extends Model
 
         $responseNode = str_replace(".", "_", $request->getApiMethodName()) . "_response";
         $resultCode = $result->$responseNode->code;
+        halt($resultCode);
         if(!empty($resultCode)&&$resultCode == 10000){
             return  '1';    //成功
         } else {
