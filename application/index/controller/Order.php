@@ -1012,6 +1012,7 @@ class Order extends Base
                 $re=db('captical_record')->insert($where);
                $ali=new alipay();
                $data3=$ali->ali_order_refound($money,$v['order_number']);
+               halt($data3);
                if($data3=='1'){    //成功
                      //退款记录
                      $mm['order_type']='6';    //退款到账
