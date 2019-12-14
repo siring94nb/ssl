@@ -30,13 +30,13 @@ class  Alipay extends Model
 
         $aop = new \AopClient();
         
-        $aop->gatewayUrl            = Config::get('alipay')['gatewayUrl'];
-        $aop->appId                 = Config::get('alipay')['appId'];
-        $aop->rsaPrivateKey         = Config::get('alipay')['rsaPrivateKey'];
-        $aop->format                = Config::get('alipay')['format'];
-        $aop->charset               = Config::get('alipay')['charset'];
-        $aop->signType              = Config::get('alipay')['signType'];
-        $aop->alipayrsaPublicKey    = Config::get('alipay')['alipayrsaPublicKey'];
+        $aop->gatewayUrl            = Config::get('alipay_siring')['gatewayUrl'];
+        $aop->appId                 = Config::get('alipay_siring')['appId'];
+        $aop->rsaPrivateKey         = Config::get('alipay_siring')['rsaPrivateKey'];
+        $aop->format                = Config::get('alipay_siring')['format'];
+        $aop->charset               = Config::get('alipay_siring')['charset'];
+        $aop->signType              = Config::get('alipay_siring')['signType'];
+        $aop->alipayrsaPublicKey    = Config::get('alipay_siring')['alipayrsaPublicKey'];
         $request = new \AlipayTradeAppPayRequest();
         $arr['body']                = $body;
         $arr['subject']             = $body;

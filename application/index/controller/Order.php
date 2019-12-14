@@ -393,7 +393,7 @@ class Order extends Base
                     //支付宝支付
                     $total_amount=$data['order_amount'];              //订单价格
                     $product_code=$data['order_number'];              //订单号
-                    $body='刷转';                      //详细信息
+                    $body='刷赚';                      //详细信息
                     $ali = new alipay();//统一下单
                     $res=$ali->alipay($body,$total_amount,$product_code);
                     if($res)
