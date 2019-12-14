@@ -636,10 +636,10 @@
                 <label class="form-label">总数积分</label>
                 <div class="form-input line">
                     <input type="text" name="points" lay-verify="title" autocomplete="off" placeholder="请输入"
-                        class="layui-input" required value="{$goods[0]['points']}" id="int" readonly="readonly">
-                    <div class="tips">
+                        class="layui-input" required value="{$goods[0]['points']}" id="int">
+                    <!-- <div class="tips">
                         *总积分数<span class="red">=公式??</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="form-item">
@@ -1212,9 +1212,9 @@
                 //总积分计算
                 $('#cost').on('blur', function () {
                     if ($(this).val() != '') {
-                        var a = Number($(this).val()) * 5;
-                        a = Math.round(a);
-                        $('#int').val(a);
+                        // var a = Number($(this).val()) * 5;
+                        // a = Math.round(a);
+                        // $('#int').val(a);
                     }
                 })
                 var vals = '';
