@@ -17,10 +17,12 @@ class Wxpay2 extends Controller{
     配置参数
     */
     private $config = array(
-        'appid' => "wxd3bc655771a1e376++++",//"wxcf1dded808489e2c",    /*微信开放平台上的应用id*/
-        'mch_id' => "1536319261",//"1440493402",   /*微信申请成功之后邮件中的商户id*/
-        'api_key' => "dTkOKWah1BpiEpabmyZtig4vxu7jrmht"    /*在微信商户平台上自己设定的api密钥 32位*/
-        // 'api_key' => "d3dc3b56623ba9d8cf933351825ce349"    /*在微信商户平台上自己设定的api密钥 32位*/
+        // 'appid' => "wxd3bc655771a1e376",//"wxcf1dded808489e2c",    /*微信开放平台上的应用id*/
+        // 'mch_id' => "1536319261",//"1440493402",   /*微信申请成功之后邮件中的商户id*/
+        // 'api_key' => "dTkOKWah1BpiEpabmyZtig4vxu7jrmht"    /*在微信商户平台上自己设定的api密钥 32位*/
+        'appid' => "wx100f38dc7d3de96a",//"wxcf1dded808489e2c",    /*微信开放平台上的应用id*/
+        'mch_id' => "1559227101",//"1440493402",   /*微信申请成功之后邮件中的商户id*/
+        'api_key' => "ae3dce2528dc43edd49e571cb95b7d45"    /*在微信商户平台上自己设定的api密钥 32位*/
     );
 
 
@@ -34,7 +36,7 @@ class Wxpay2 extends Controller{
         $data["body"] = $body;
         $data["mch_id"] = $this->config['mch_id'];
         $data["nonce_str"] = $onoce_str;
-        $data["notify_url"] = "https://ssl.siring.com.cn/wxpaynotifyurl";
+        $data["notify_url"] = "https://shuazhuaun.siring.com.cn/index/Wxpay2/wxpaynotifyurl";
         $data["out_trade_no"] = $out_trade_no;
         $data["spbill_create_ip"] = $this->get_client_ip();
         $data["total_fee"] = $total_fee;
@@ -146,8 +148,7 @@ class Wxpay2 extends Controller{
         else
         {
             $error = curl_errno($ch);
-            // echo "curl出错，错误码:$error"."<br>";
-            // echo "<a href='http://curl.haxx.se/libcurl/c/libcurl-errors.html'>错误原因查询</a></br>";
+           
             curl_close($ch);
             return false;
         }
@@ -183,7 +184,7 @@ class Wxpay2 extends Controller{
             }
             $buff .= strtolower($k) . "=" . $v . "&";
         }
-        $reqPar;
+        // $reqPar;
         if (strlen($buff) > 0)
         {
             $reqPar = substr($buff, 0, strlen($buff)-1);

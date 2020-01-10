@@ -128,7 +128,7 @@ Route::group("admin",[
     "admin_index"=>"admin/Admin/index",
     "admin_add"=>"admin/Admin/add",
     "admin_save"=>"admin/Admin/save",
-    "admin_del"=>"admin/adAdminmin/del",
+    "admin_del"=>"admin/Admin/admin_del",
     "admin_edit"=>"admin/admin/edit",
     "admin_updata"=>"admin/admin/updata",
     "admin_status"=>"admin/admin/status",

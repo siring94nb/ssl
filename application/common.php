@@ -30,61 +30,64 @@ function curl($url){
     curl_close($ch);
     return $output;
 }
-// /*
-//  * curl_post请求短信发送函数
-//  * $text  欲请求的文本内容
-//  * return json数据
+// /**
+//  * @param string $content  短信内容
+//  * @param string $mobile   手机号
+//  * @return 成功时返回，其他抛异常
 //  */
-// function sms_message( $phone = "" ,$content = ""){
-//     $account='shuaishuaile';
-//     $password="123qwe";
-//     $url = "http://120.26.38.54:8000/interface/smssend.aspx";
-//     $post_data = array ("account" => $account,"password" => $password,"mobile"=>$phone,"content"=>$content);
+// function sms_message($content,$mobile)
+// {
+//     $url = "http://117.48.217.182:8860/sendSms";//请求URL     47.107.123.77     47.112.109.159
+//     $api_code = "240010";//对接协议中的API代码
+//     $api_secret = "OI932EF64V";//对接协议中的API密码
+//     $sign = md5($content.$api_secret);//md加密后短信内容+API密码 获得签名
+//     $bodys = [
+//         'cust_code'=>$api_code,
+//         'content' => $content,
+//         'destMobiles' => $mobile,
+//         'sign' => $sign,
+//     ];
+//     $data_string = json_encode($bodys);
+//     if (!function_exists('curl_init'))
+//     {
+//         return '';
+//     }
+//     //设置url
 //     $ch = curl_init();
-//     curl_setopt($ch, CURLOPT_URL,$url);
+//     curl_setopt($ch, CURLOPT_URL, $url);
 //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 //     curl_setopt($ch, CURLOPT_POST, 1);
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-//     $output = curl_exec($ch);
-//     curl_close($ch);
-//     return $output;
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+
+//     curl_setopt($ch,CURLOPT_HTTPHEADER,array('Content-Type: text/html'));// 文本提交方式，必须声明请求头
+//     $data = curl_exec($ch);
+//     if($data === false){
+//         var_dump(curl_error($ch));
+//     }else{
+//         curl_close($ch);
+//     }
+//     return $data;
 // }
-/**
- * @param string $content  短信内容
- * @param string $mobile   手机号
- * @return 成功时返回，其他抛异常
- */
 function sms_message($content,$mobile)
 {
-    $url = "http://117.48.217.182:8860/sendSms";//请求URL     47.107.123.77     47.112.109.159
-    $api_code = "240010";//对接协议中的API代码
-    $api_secret = "OI932EF64V";//对接协议中的API密码
-    $sign = md5($content.$api_secret);//md加密后短信内容+API密码 获得签名
-    $bodys = [
-        'cust_code'=>$api_code,
-        'content' => $content,
-        'destMobiles' => $mobile,
-        'sign' => $sign,
-    ];
-    $data_string = json_encode($bodys);
-    if (!function_exists('curl_init'))
-    {
-        return '';
-    }
-    //设置url
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+    $api_code = "922014";//对接协议中的账号
+    $api_secret = "KZeSSy";//对接协议中的密码
+    $extno = 106906;
+    $con = urlencode($content);
+    //$sign = md5($api_secret.$extno.$con.$mobile);//md加密后短信内容+API密码
+    $url = "http://117.48.217.182:7862/sms?action=send&account=".$api_code."&password=".$api_secret."&mobile=".$mobile."&content=".$con."&extno=".$extno."&rt=json";//请求URL
+    $curl = curl_init();
+    // 设置url路径
+    curl_setopt($curl, CURLOPT_URL, $url);
+    // 将 curl_exec()获取的信息以文件流的形式返回，而不是直接输出。
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true) ;
+    // 在启用 CURLOPT_RETURNTRANSFER 时候将获取数据返回
+    curl_setopt($curl, CURLOPT_BINARYTRANSFER, true) ;
+    // 执行
+    $data = curl_exec($curl);
+    // 关闭连接
+    curl_close($curl);
 
-    curl_setopt($ch,CURLOPT_HTTPHEADER,array('Content-Type: text/html'));// 文本提交方式，必须声明请求头
-    $data = curl_exec($ch);
-    if($data === false){
-        var_dump(curl_error($ch));
-    }else{
-        curl_close($ch);
-    }
     return $data;
 }
 

@@ -226,7 +226,6 @@ class Order extends Base
                         return ajax_error('新建订单失败',$order['err_code_des']);
                         // echo json_encode(array('status' => 0, 'msg' => $order['err_code_des']));
                     }
-                    break;
             }else{
                return ajax_error('订单生成失败');
             }
