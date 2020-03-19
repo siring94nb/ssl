@@ -70,9 +70,9 @@ function curl($url){
 // }
 function sms_message($content,$mobile)
 {
-    $api_code = "922014";//对接协议中的账号
-    $api_secret = "KZeSSy";//对接协议中的密码
-    $extno = 106906;
+    $api_code = "922028";//对接协议中的账号
+    $api_secret = "MCmtxS";//对接协议中的密码
+    $extno = 106901;     //虚拟接入号
     $con = urlencode($content);
     //$sign = md5($api_secret.$extno.$con.$mobile);//md加密后短信内容+API密码
     $url = "http://117.48.217.182:7862/sms?action=send&account=".$api_code."&password=".$api_secret."&mobile=".$mobile."&content=".$con."&extno=".$extno."&rt=json";//请求URL
